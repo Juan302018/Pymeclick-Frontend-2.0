@@ -18,7 +18,7 @@ import { CategoriaEdicionComponent } from './pages/categoria/categoria-edicion/c
 import { CiudadEdicionComponent } from './pages/ciudad/ciudad-edicion/ciudad-edicion.component';
 import { ComunaEdicionComponent } from './pages/comuna/comuna-edicion/comuna-edicion.component';
 import { EmpresaEdicionComponent } from './pages/empresa/empresa-edicion/empresa-edicion.component';
-import { ProductoServicioEdicionComponent } from './pages/productoServicio/producto-servicio-edicion/producto-servicio-edicion.component';
+import { ProductoServicioEdicionComponent } from './pages/producto-servicio/producto-servicio.component';
 
 @NgModule({
   declarations: [

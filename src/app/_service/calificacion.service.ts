@@ -9,7 +9,7 @@ import { Injectable } from '@angular/core';
 })
 export class CalificacionService {
 
-  calificacionCambio = new Subject<calificacion[]>();
+  calificacionCambio = new Subject<Calificacion[]>();
   mensajeCambio = new Subject<string>();
 
   url: string = `${environment.HOST}/calificacion`;

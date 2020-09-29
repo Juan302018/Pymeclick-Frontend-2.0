@@ -19,6 +19,7 @@ import { CiudadEdicionComponent } from './pages/ciudad/ciudad-edicion/ciudad-edi
 import { ComunaEdicionComponent } from './pages/comuna/comuna-edicion/comuna-edicion.component';
 import { EmpresaEdicionComponent } from './pages/empresa/empresa-edicion/empresa-edicion.component';
 import { ProductoServicioEdicionComponent } from './pages/producto-servicio/producto-servicio.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ProductoServicioEdicionComponent } from './pages/producto-servicio/prod
     CiudadEdicionComponent,
     ComunaEdicionComponent,
     EmpresaEdicionComponent,
-    ProductoServicioEdicionComponent
+    ProductoServicioEdicionComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

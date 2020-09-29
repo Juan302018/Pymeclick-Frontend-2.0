@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSnackBar, MatSort } from '@angular/material';
 import { MatTableDataSource } from '@angular/material/table/typings/table-data-source';
+import { Calificacion } from 'src/app/_model/calificacion';
+import { CalificacionService } from 'src/app/_service/calificacion.service';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-calificacion',

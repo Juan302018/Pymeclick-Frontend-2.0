@@ -1,5 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSnackBar, MatSort, MatTableDataSource } from '@angular/material';
+import { Ciudad } from 'src/app/_model/ciudad';
+import { Comuna } from 'src/app/_model/comuna';
+import { CiudadService } from 'src/app/_service/ciudad.service';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-ciudad',

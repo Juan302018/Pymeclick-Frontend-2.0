@@ -1,5 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSnackBar, MatSort, MatTableDataSource } from '@angular/material';
+import { Categoria } from 'src/app/_model/categoria';
+import { Empresa } from 'src/app/_model/empresa';
+import { EmpresaService } from 'src/app/_service/empresa.service';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-empresa',

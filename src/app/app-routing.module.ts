@@ -12,9 +12,15 @@ import { EmpresaEdicionComponent } from './pages/empresa/empresa-edicion/empresa
 import { EmpresaComponent } from './pages/empresa/empresa.component';
 import { ProductoServicioComponent } from './pages/producto-servicio/producto-servicio.component';
 import { ProductoServicioEdicionComponent } from './pages/producto-servicio/producto-servicio-edicion/producto-servicio-edicion.component';
+import { HomeComponent } from './pages/home/home.component';
 
 
 const routes: Routes = [
+
+  {
+    path: 'home', component: HomeComponent,
+    pathMatch: 'full'
+  },
 
   {
     path: 'calificacion', component: CalificacionComponent, children: [
@@ -31,17 +37,11 @@ const routes: Routes = [
   },
 
   {
-    path: 'ciudad', component: CiudadComponent, children: [
-      { path: 'nuevo', component: CiudadEdicionComponent },
-      { path: 'edicion/:id', component: CiudadEdicionComponent }
-    ]
+    path: 'ciudad', component: CiudadComponent
   },
 
   {
-    path: 'comuna', component: ComunaComponent, children: [
-      { path: 'nuevo', component: ComunaEdicionComponent },
-      { path: 'edicion/:id', component: ComunaEdicionComponent }
-    ]
+    path: 'comuna', component: ComunaComponent
   },
 
   {

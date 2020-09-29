@@ -1,5 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSnackBar, MatSort, MatTableDataSource } from '@angular/material';
+import { Categoria } from 'src/app/_model/categoria';
+import { Empresa } from 'src/app/_model/empresa';
+import { ProductoServicio } from 'src/app/_model/productoServicio';
+import { ProductoServicioService } from 'src/app/_service/producto-servicio.service';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-producto-servicio',

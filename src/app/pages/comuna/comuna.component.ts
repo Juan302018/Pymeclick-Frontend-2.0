@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSnackBar, MatSort, MatTableDataSource } from '@angular/material';
+import { Comuna } from 'src/app/_model/comuna';
+import { ComunaService } from 'src/app/_service/comuna.service';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-comuna',

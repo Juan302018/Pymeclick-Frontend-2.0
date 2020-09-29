@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSnackBar, MatSort, MatTableDataSource } from '@angular/material';
+import { Categoria } from 'src/app/_model/categoria';
+import { CategoriaService } from 'src/app/_service/categoria.service';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-categoria',
@@ -14,7 +17,7 @@ export class CategoriaComponent implements OnInit {
   @ViewChild(MatPaginator,{static:true})
   paginator:MatPaginator;
   @ViewChild(MatSort,{static:true}) sort: MatSort;
-    constructor(private categoriaService:CategoriaServie, snackBar: MatSnackBar) { }
+    constructor(private categoriaService:CategoriaService, snackBar: MatSnackBar) { }
   
     ngOnInit(){
       this.categoriaService.categoriaCambio.subscribe(data =>

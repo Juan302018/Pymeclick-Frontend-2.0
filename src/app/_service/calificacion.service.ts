@@ -19,4 +19,20 @@ export class CalificacionService {
   listar() {
     return this.http.get<Calificacion[]>(this.url);
   }
+
+  listarPorId(id_calificacion: number) {
+    return this.http.get<Calificacion>(`${this.url}/${id_calificacion}`);
+  }
+
+  registrar(calificacion: Calificacion) {
+    return this.http.post(this.url, calificacion);
+  }
+
+  modificar(calificacion: Calificacion) {
+    return this.http.put(this.url, calificacion);
+  }
+
+  eliminar(id_calificacion: number) {
+    return this.http.delete<Calificacion>(`${this.url}/${id_calificacion}`);
+  }
 }

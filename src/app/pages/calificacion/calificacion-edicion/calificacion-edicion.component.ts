@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Calificacion } from 'src/app/_model/calificacion';
+import { CalificacionService } from 'src/app/_service/calificacion.service';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-calificacion-edicion',

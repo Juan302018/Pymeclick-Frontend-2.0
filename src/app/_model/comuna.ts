@@ -1,4 +1,4 @@
 export class Comuna {
-    id_categoria: number;
-    nombre_categoria: string;
+    id_comuna: number;
+    nombre_comuna: string;
 }

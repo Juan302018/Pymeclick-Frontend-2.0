@@ -2,6 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Categoria } from 'src/app/_model/categoria';
+import { Empresa } from 'src/app/_model/empresa';
+import { ProductoServicio } from 'src/app/_model/productoServicio';
+import { CategoriaService } from 'src/app/_service/categoria.service';
+import { EmpresaService } from 'src/app/_service/empresa.service';
+import { ProductoServicioService } from 'src/app/_service/producto-servicio.service';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-producto-servicio-edicion',
@@ -11,18 +18,18 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 export class ProductoServicioEdicionComponent implements OnInit {
 
   categoria: Categoria[];
-  categoriasSeleccionados: Categoria[] = [];
+  categoriasSeleccionadas: Categoria[] = [];
   empresa: Empresa[];
   empresasSeleccionadas: Empresa[] = [];
   id: number;
-  id_categoriaSeleccionado: number;
+  id_categoriaSeleccionada: number;
   id_empresaSeleccionada: number;
   productoServicio: ProductoServicio;
   form: FormGroup;
   edicion: boolean = false;
   mensaje: string;
 
-  constructor(private productoServicioService: ProductoServicioService, private categoriaService: CategoriaServie, private empresaService: EmpresaService, private route: ActivatedRoute, private router: Router, private snackBar: MatSnackBar) { }
+  constructor(private productoServicioService: ProductoServicioService, private categoriaService: CategoriaService, private empresaService: EmpresaService, private route: ActivatedRoute, private router: Router, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.productoServicio = new ProductoServicio();
@@ -30,7 +37,7 @@ export class ProductoServicioEdicionComponent implements OnInit {
       id_prod_serv: new FormControl(0),
       nombre_prod_serv: new FormControl(''),
       precio: new FormControl(0),
-      imagen: new FormControl(),
+      imagen: new FormControl(''),
       descripcion_prod_serv: new FormControl(''),
     
    });
@@ -67,12 +74,12 @@ export class ProductoServicioEdicionComponent implements OnInit {
   }
 
   agregarCategoria() {
-    if (this.id_categoriaSeleccionado > 0) {
+    if (this.id_categoriaSeleccionada > 0) {
 
       let cont = 0;
-      for (let i = 0; i < this.categoriasSeleccionados.length; i++) {
-        let categoria = this.categoriasSeleccionados[i];
-        if (categoria.id_categoria === this.id_categoriaSeleccionado) {
+      for (let i = 0; i < this.categoriasSeleccionadas.length; i++) {
+        let categoria = this.categoriasSeleccionadas[i];
+        if (categoria.id_categoria === this.id_categoriaSeleccionada) {
           cont++;
           break;
         }
@@ -82,11 +89,11 @@ export class ProductoServicioEdicionComponent implements OnInit {
         this.snackBar.open(this.mensaje, "Aviso", { duration: 2000 });
       } else {
         let categoria = new Categoria();
-        categoria.id_categoria = this.id_categoriaSeleccionado;
+        categoria.id_categoria = this.id_categoriaSeleccionada;
 
-        this.categoriaService.listarPorid(this.id_categoriaSeleccionado).subscribe(data => {
+        this.categoriaService.listarPorid(this.id_categoriaSeleccionada).subscribe(data => {
           categoria.nombre_categoria = data.nombre_categoria;
-          this.categoriasSeleccionados.push(categoria);
+          this.categoriasSeleccionadas.push(categoria);
         });
       }
     } else {
@@ -133,8 +140,8 @@ export class ProductoServicioEdicionComponent implements OnInit {
         let precio = data.precio;
         let imagen = data.categoria;
         let descripcion_prod_serv = data.descripcion_prod_serv;
-        let categoria = data.categoria;
-        let empresa = data.empresa;
+        let categoria = data.categorias;
+        let empresa = data.empresas;
         this.form = new FormGroup({
           'id': new FormControl(id),
           'nombre_prod_serv': new FormControl(nombre_prod_serv),
@@ -154,8 +161,8 @@ export class ProductoServicioEdicionComponent implements OnInit {
       this.productoServicio.precio = this.form.value['precio'];
       this.productoServicio.imagen = this.form.value['imagen'];
       this.productoServicio.descripcion_prod_serv = this.form.value['descripcion_prod_serv'];
-      this.productoServicio.categoria = this.form.value['categoria'];
-      this.productoServicio.empresa = this.form.value['empresa'];
+      this.productoServicio.categorias = this.form.value['categoria'];
+      this.productoServicio.empresas = this.form.value['empresa'];
       if(this.productoServicio!= null && this.productoServicio.id_prod_serv >0){
         // pipe es un método observable que es similar al subscribe, pero que optimisa y renderiza mejor la carga de lista
         this.productoServicioService.modificar(this.productoServicio).pipe(switchMap(() => {

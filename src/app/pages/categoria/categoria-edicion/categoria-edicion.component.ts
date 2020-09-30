@@ -2,6 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatPaginator, MatSnackBar, MatSort, MatTableDataSource } from '@angular/material';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Categoria } from 'src/app/_model/categoria';
+import { CategoriaService } from 'src/app/_service/categoria.service';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-categoria-edicion',
@@ -15,7 +18,7 @@ export class CategoriaEdicionComponent implements OnInit {
   form: FormGroup;
   edicion: boolean = false;
 
-  constructor(private categoriaService:CategoriaServie, private route: ActivatedRoute, private router: Router ) { }
+  constructor(private categoriaService:CategoriaService, private route: ActivatedRoute, private router: Router ) { }
 
   ngOnInit(){
     this.categoria= new Categoria();

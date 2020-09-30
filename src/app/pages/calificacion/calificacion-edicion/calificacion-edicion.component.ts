@@ -36,7 +36,7 @@ export class CalificacionEdicionComponent implements OnInit {
    }
    initForm() {
     if (this.edicion) {
-      this.calificacionService.listarPorid(this.id).subscribe(data => {
+      this.calificacionService.listarPorId(this.id).subscribe(data => {
         let id = data.id_calificacion;
         let puntaje = data.puntaje;
         let imagen = data.imagen;

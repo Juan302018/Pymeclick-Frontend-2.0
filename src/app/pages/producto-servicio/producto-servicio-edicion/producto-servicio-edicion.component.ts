@@ -91,7 +91,7 @@ export class ProductoServicioEdicionComponent implements OnInit {
         let categoria = new Categoria();
         categoria.id_categoria = this.id_categoriaSeleccionada;
 
-        this.categoriaService.listarPorid(this.id_categoriaSeleccionada).subscribe(data => {
+        this.categoriaService.listarPorId(this.id_categoriaSeleccionada).subscribe(data => {
           categoria.nombre_categoria = data.nombre_categoria;
           this.categoriasSeleccionadas.push(categoria);
         });
@@ -120,7 +120,7 @@ export class ProductoServicioEdicionComponent implements OnInit {
         let empresa = new Empresa();
         empresa.id_empresa = this.id_empresaSeleccionada;
 
-        this.empresaService.listarPorid(this.id_empresaSeleccionada).subscribe(data => {
+        this.empresaService.listaPorId(this.id_empresaSeleccionada).subscribe(data => {
           empresa.nombre = data.nombre;
           this.empresasSeleccionadas.push(empresa);
         });
@@ -136,9 +136,9 @@ export class ProductoServicioEdicionComponent implements OnInit {
     if(this.edicion) {
       this.productoServicioService.listarPorId(this.id).subscribe(data => {
         let id = data.id_prod_serv;
-        let nombre_prod_serv = data.descripcion_prod_serv;
+        let nombre_prod_serv = data.nombre_prod_serv;
         let precio = data.precio;
-        let imagen = data.categoria;
+        let imagen = data.imagen;
         let descripcion_prod_serv = data.descripcion_prod_serv;
         let categoria = data.categorias;
         let empresa = data.empresas;
@@ -168,14 +168,14 @@ export class ProductoServicioEdicionComponent implements OnInit {
         this.productoServicioService.modificar(this.productoServicio).pipe(switchMap(() => {
           return this.productoServicioService.listar();
         })).subscribe(data => {
-          this.productoServicioService.productoservicioCambio.next(data);
+          this.productoServicioService.productoServicioCambio.next(data);
           this.productoServicioService.mensajeCambio.next("Un Producto o Servicio fue modificado");
         });  
     }else{
       this.productoServicioService.registrar(this.productoServicio).pipe(switchMap(() => {
         return this.productoServicioService.listar();
       })).subscribe(data => {
-        this.productoServicioService.productoservicioCambio.next(data);
+        this.productoServicioService.productoServicioCambio.next(data);
         this.productoServicioService.mensajeCambio.next("Se registró un Producto o Servicio");
       });
     }

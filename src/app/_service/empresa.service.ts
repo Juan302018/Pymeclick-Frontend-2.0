@@ -10,7 +10,7 @@ import { Empresa } from '../_model/empresa';
 export class EmpresaService {
 
   empresaCambio = new Subject<Empresa[]>();
-  mesajeCambio = new Subject<string>();
+  mensajeCambio = new Subject<string>();
 
   url: string = `${environment.HOST}/empresa`;
 

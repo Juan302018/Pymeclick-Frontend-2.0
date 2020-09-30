@@ -34,7 +34,7 @@ export class CategoriaEdicionComponent implements OnInit {
    }
    initForm() {
     if (this.edicion) {
-      this.categoriaService.listarPorid(this.id).subscribe(data => {
+      this.categoriaService.listarPorId(this.id).subscribe(data => {
         let id = data.id_categoria;
         let nombre_categoria = data.nombre_categoria;
         this.form = new FormGroup({

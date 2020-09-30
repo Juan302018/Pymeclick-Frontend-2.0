@@ -23,7 +23,7 @@ export class ProductoServicioComponent implements OnInit {
   constructor(private productoservicioService: ProductoServicioService, public snackBar: MatSnackBar) { }
 
   ngOnInit() {
-    this.productoservicioService.productoservicioCambio.subscribe(data => {
+    this.productoservicioService.productoServicioCambio.subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
@@ -49,7 +49,7 @@ export class ProductoServicioComponent implements OnInit {
       switchMap(() => {
         return this.productoservicioService.listar();
       })).subscribe(data =>{
-        this.productoservicioService.productoservicioCambio.next(data);
+        this.productoservicioService.productoServicioCambio.next(data);
         this.productoservicioService.mensajeCambio.next('Un producto o servicio fue eliminado');
       });
   }

@@ -2,6 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Calificacion } from 'src/app/_model/calificacion';
+import { Categoria } from 'src/app/_model/categoria';
+import { Ciudad } from 'src/app/_model/ciudad';
+import { Comuna } from 'src/app/_model/comuna';
+import { Empresa } from 'src/app/_model/empresa';
+import { CalificacionService } from 'src/app/_service/calificacion.service';
+import { CategoriaService } from 'src/app/_service/categoria.service';
+import { CiudadService } from 'src/app/_service/ciudad.service';
+import { ComunaService } from 'src/app/_service/comuna.service';
+import { EmpresaService } from 'src/app/_service/empresa.service';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-empresa-edicion',
@@ -29,7 +40,7 @@ export class EmpresaEdicionComponent implements OnInit {
     private comunaService: ComunaService,
     private ciudadService: CiudadService,
     private calificacionService: CalificacionService,
-    private categoriaService: CategoriaServie,
+    private categoriaService: CategoriaService,
     private route: ActivatedRoute, private router: Router
     , private snackBar: MatSnackBar) { }
 
@@ -101,7 +112,7 @@ agregarCategoria() {
       let categoria = new Categoria();
       categoria.id_categoria = this.id_categoriaSeleccionado;
 
-      this.categoriaService.listarPorid(this.id_categoriaSeleccionado).subscribe(data => {
+      this.categoriaService.listarPorId(this.id_categoriaSeleccionado).subscribe(data => {
         categoria.nombre_categoria = data.nombre_categoria;
         this.categoriasSeleccionados.push(categoria);
       });
@@ -136,7 +147,7 @@ registrar(){
 initForm(){
   
         if(this.edicion) {
-          this.empresaService.listarPorid(this.id).subscribe(data => {
+          this.empresaService.listaPorId(this.id).subscribe(data => {
             let id = data.id_empresa
             let nombre = data.nombre;
             let direccion= data.direccion;

@@ -4,9 +4,7 @@ import { CalificacionEdicionComponent } from './pages/calificacion/calificacion-
 import { CalificacionComponent } from './pages/calificacion/calificacion.component';
 import { CategoriaEdicionComponent } from './pages/categoria/categoria-edicion/categoria-edicion.component';
 import { CategoriaComponent } from './pages/categoria/categoria.component';
-import { CiudadEdicionComponent } from './pages/ciudad/ciudad-edicion/ciudad-edicion.component';
 import { CiudadComponent } from './pages/ciudad/ciudad.component';
-import { ComunaEdicionComponent } from './pages/comuna/comuna-edicion/comuna-edicion.component';
 import { ComunaComponent } from './pages/comuna/comuna.component';
 import { EmpresaEdicionComponent } from './pages/empresa/empresa-edicion/empresa-edicion.component';
 import { EmpresaComponent } from './pages/empresa/empresa.component';

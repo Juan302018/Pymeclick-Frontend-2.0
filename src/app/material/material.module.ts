@@ -27,7 +27,7 @@ import { MatTableModule, MatButtonModule, MatFormFieldModule, MatInputModule, Ma
     MatNativeDateModule,
     MatExpansionModule,
     MatAutocompleteModule
-  ],exports:[
+  ], exports: [
     MatButtonModule,
     MatTableModule,
     MatFormFieldModule,

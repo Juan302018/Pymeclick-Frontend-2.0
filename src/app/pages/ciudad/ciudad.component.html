@@ -1,1 +1,53 @@
-<p>ciudad works!</p>
+<mat-toolbar>Ciudad</mat-toolbar>
+
+<router-outlet></router-outlet>
+
+<div class="example-container mat-elevation-z8">
+
+  <div class="example-header">
+    <mat-form-field>
+      <input matInput (keyup)="filtrar($event.target.value)" placeholder="Buscar ciudad">
+    </mat-form-field>
+  </div>
+
+  <mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.id_ciudad}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="nombre ciudad">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.nombre_ciudad}} </mat-cell>
+      </ng-container>
+
+      <mat-expansion-panel *ngFor="let c of comuna; let i=index">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ i + 1 }}  {{c.nombre_comuna}}
+            </mat-panel-title>
+            <mat-panel-description>
+                Ver Comuna
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+    </mat-expansion-panel>
+
+      <ng-container matColumnDef="acciones">
+        <mat-header-cell *matHeaderCellDef>Acciones</mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <button mat-button color="accent" (click)="eliminar(row)"><mat-icon>delete</mat-icon></button>
+        </mat-cell>
+      </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColums"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColums;">
+    </mat-row>
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
+
+<button mat-fab color="accent" style="float: right; margin-right: 20px" routerLink='/ciudad/nuevo'>
+  <mat-icon>create</mat-icon>
+</button>
+

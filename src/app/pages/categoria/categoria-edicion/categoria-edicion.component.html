@@ -1,1 +1,24 @@
-<p>categoria-edicion works!</p>
+<form class="example-container" [formGroup]="form" (ngSubmit)="operar()" #frmCategoria="ngForm">
+   
+    <div [hidden]="true">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="ID" required formControlName="id">
+        </mat-form-field>
+    </div>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Nombre de categoria" required formControlName="nombre">
+    </mat-form-field>
+
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="frmCategoria.invalid">
+        <mat-icon>done</mat-icon>
+        <mat-icon>Aceptar</mat-icon> 
+    </button>
+
+    <button mat-raised-button color="accent" routerLink='/categoria' type="button">
+        <mat-icon>close</mat-icon>
+        <mat-icon>Cancelar</mat-icon>
+    </button>
+</form>
+

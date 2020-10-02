@@ -1,1 +1,31 @@
-<p>calificacion-edicion works!</p>
+<form class="example-container" [formGroup]="form" (ngSubmit)="operar()" #frmCalificacion="ngForm">
+
+    <div [hidden]="true">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="ID" required formControlName="id">
+        </mat-form-field>
+    </div>
+
+    
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Puntaje" required formControlName="puntaje">
+    </mat-form-field>
+    
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Imagen" required formControlName="imagen">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Comentario" required formControlName="comentario">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="frmCalificacion.invalid">
+        <mat-icon>done</mat-icon>
+        <span>Aceptar</span>
+    </button>
+    <button mat-raised-button color="accent" routerLink='/calificacion' type="button">
+        <mat-icon>close</mat-icon>
+        <span>Cancelar</span>
+    </button>
+</form>
+

@@ -198,7 +198,7 @@ initForm(){
               return this.empresaService.listar();
             })).subscribe(data => {
               this.empresaService.empresaCambio.next(data);
-              this.empresaService.mensajeCambio.next("Un Producto o Servicio fue modificado");
+              this.empresaService.mensajeCambio.next("una empresa fue modificado");
             });  
         }else{
           this.empresaService.registrar(this.empresa).pipe(switchMap(() => {

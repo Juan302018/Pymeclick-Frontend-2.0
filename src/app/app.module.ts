@@ -1,7 +1,6 @@
 import { MaterialModule } from './material/material.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -15,8 +14,6 @@ import { EmpresaComponent } from './pages/empresa/empresa.component';
 import { ProductoServicioComponent } from './pages/producto-servicio/producto-servicio.component';
 import { CalificacionEdicionComponent } from './pages/calificacion/calificacion-edicion/calificacion-edicion.component';
 import { CategoriaEdicionComponent } from './pages/categoria/categoria-edicion/categoria-edicion.component';
-import { CiudadEdicionComponent } from './pages/ciudad/ciudad-edicion/ciudad-edicion.component';
-import { ComunaEdicionComponent } from './pages/comuna/comuna-edicion/comuna-edicion.component';
 import { EmpresaEdicionComponent } from './pages/empresa/empresa-edicion/empresa-edicion.component';
 import { ProductoServicioEdicionComponent } from './pages/producto-servicio/producto-servicio-edicion/producto-servicio-edicion.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -32,8 +29,6 @@ import { HomeComponent } from './pages/home/home.component';
     ProductoServicioComponent,
     CalificacionEdicionComponent,
     CategoriaEdicionComponent,
-    CiudadEdicionComponent,
-    ComunaEdicionComponent,
     EmpresaEdicionComponent,
     ProductoServicioEdicionComponent,
     HomeComponent

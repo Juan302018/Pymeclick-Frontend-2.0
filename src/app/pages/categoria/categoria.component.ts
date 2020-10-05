@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatSnackBar, MatSort, MatTableDataSource } from '@angular/material';
+import { MatTableDataSource, MatPaginator, MatSort, MatSnackBar } from '@angular/material';
+import { switchMap } from 'rxjs/operators';
 import { Categoria } from 'src/app/_model/categoria';
 import { CategoriaService } from 'src/app/_service/categoria.service';
-import { switchMap } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-categoria',

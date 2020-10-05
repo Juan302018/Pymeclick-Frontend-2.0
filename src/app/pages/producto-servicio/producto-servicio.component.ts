@@ -14,13 +14,15 @@ import { switchMap } from 'rxjs/operators';
 export class ProductoServicioComponent implements OnInit {
 
   displayedColums = ['id', 'nombre', 'precio', 'imagen', 'descripcion', 'categorias', 'empresa', 'acciones'];
-  dataSource: MatTableDataSource<ProductoServicio>
-  categoria:Categoria[];
-  empresa:Empresa[];
+  dataSource: MatTableDataSource<ProductoServicio>;
+  categoria: Categoria[];
+  empresa: Empresa[];
   @ViewChild(MatPaginator, { static: true })
   paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
-  constructor(private productoservicioService: ProductoServicioService, public snackBar: MatSnackBar) { }
+
+  constructor(private productoservicioService: ProductoServicioService,
+              public snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.productoservicioService.productoServicioCambio.subscribe(data => {
@@ -40,15 +42,15 @@ export class ProductoServicioComponent implements OnInit {
     });
   }
 
-  filtrar(valor : string){
+  filtrar(valor : string) {
     this.dataSource.filter = valor.trim().toLowerCase();
   }
 
-  eliminar(productoservicio: ProductoServicio){
+  eliminar(productoservicio: ProductoServicio) {
     this.productoservicioService.eliminar(productoservicio.id_prod_serv).pipe(
       switchMap(() => {
         return this.productoservicioService.listar();
-      })).subscribe(data =>{
+      })).subscribe(data => {
         this.productoservicioService.productoServicioCambio.next(data);
         this.productoservicioService.mensajeCambio.next('Un producto o servicio fue eliminado');
       });

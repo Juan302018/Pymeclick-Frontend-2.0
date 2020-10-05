@@ -1,1 +1,77 @@
-<p>empresa-edicion works!</p>
+<form class="example-container" [formGroup]="form" (ngSubmit)="operar()" #frmEmpresa="ngForm">
+    
+    <div [hidden]="true">
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="ID" required formControlName="id">
+      </mat-form-field>
+  </div>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Nombre de empresa" required formControlName="nombre">
+</mat-form-field>
+
+<mat-form-field class="example-full-width">
+    <input matInput placeholder="Direccion" required formControlName="direccion">
+</mat-form-field>
+
+<mat-form-field class="example-full-width">
+    <input matInput placeholder="Descripcion" required formControlName="descripcion">
+</mat-form-field>
+
+<mat-form-field class="example-full-width">
+    <input matInput placeholder="Telefono" required formControlName="telefono">
+</mat-form-field>
+
+<mat-form-field class="example-full-width">
+    <input matInput placeholder="Logo" required formControlName="telefono">
+</mat-form-field>
+
+<mat-form-field class="example-full-width">
+    <input matInput placeholder="Email" required formControlName="email">
+</mat-form-field>
+
+<mat-form-field>
+    <mat-select placeholder="Comuna" [(value)]="comunaSeleccionada"
+        (selectionChange)="seleccionarComuna($event)">
+        <mat-option *ngFor="let com of comuna" [value]="com">
+            {{com.nombre_comuna}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+
+<mat-form-field>
+    <mat-select placeholder="Ciudad" [(value)]="ciudadSeleccionada"
+        (selectionChange)="seleccionarCiudad($event)">
+        <mat-option *ngFor="let ciu of ciudad" [value]="ciu">
+            {{ciu.nombre}} 
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+
+<mat-form-field>
+    <mat-select placeholder="Calificacion" [(value)]="calificacionSeleccionada"
+        (selectionChange)="seleccionarCalificacion($event)">
+        <mat-option *ngFor="let cal of calificacion" [value]="cal">
+            {{cal.puntaje}} 
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+
+<mat-form-field>
+    <mat-select placeholder="Categoria" [(value)]="id_categoriaSeleccionado">
+        <mat-option *ngFor="let c of categoria" [value]="c.id_categoria">{{c.nombre_categoria}}</mat-option>
+    </mat-select>
+</mat-form-field>
+
+<button mat-raised-button color="primary" (click)="agregarCategoria()">Agregar Categorías</button>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="frmEmpresa.invalid">
+    <mat-icon>done</mat-icon>
+    <mat-icon>Aceptar</mat-icon> 
+</button>
+
+<button mat-raised-button color="accent" routerLink='/empresa' type="button">
+    <mat-icon>close</mat-icon>
+    <mat-icon>Cancelar</mat-icon>
+</button>
+</form>

@@ -1,1 +1,51 @@
-<p>producto-servicio-edicion works!</p>
+<form class="example-container" [formGroup]="form" (ngSubmit)="operar()" #frmProductoServicio="ngForm">
+    <div>
+        <mat-form-field>
+            <input matInput placeholder="ID" required formControlName="id">
+        </mat-form-field>
+    </div>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Nombre de Producto o Servicio" required formControlName="nombre_prod_serv">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="precio" required formControlName="precio">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="imagen" required formControlName="imagen">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Descripción" required formControlName="descripcion_prod_serv">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-select placeholder="Categoria" [(value)]="id_categoriaSeleccionada">
+            <mat-option *ngFor="let c of categoria" [value]="c.id_categoria">{{c.nombre_categoria}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    
+    <mat-form-field>
+        <mat-select placeholder="Empresa" [(value)]="id_empresaSeleccionada">
+            <mat-option *ngFor="let emp of empresa" [value]="emp.id_empresa">{{emp.nombre}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    
+    <button mat-raised-button color="primary" (click)="agregarCategoria()">Agregar Categorías</button>
+
+    <button mat-raised-button color="primary" (click)=" agregarEmpresa()">Agregar Empresa</button>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="frmProductoServicio.invalid">
+        <mat-icon>done</mat-icon>
+        <mat-icon>Aceptar</mat-icon> 
+    </button>
+
+    <button mat-raised-button color="accent" routerLink='/productoServicio' type="button">
+        <mat-icon>close</mat-icon>
+        <mat-icon>Cancelar</mat-icon>
+    </button>
+</form>

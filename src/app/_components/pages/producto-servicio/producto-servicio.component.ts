@@ -13,7 +13,7 @@ import { switchMap } from 'rxjs/operators';
 })
 export class ProductoServicioComponent implements OnInit {
 
-  displayedColums = ['id', 'nombre', 'precio', 'imagen', 'descripcion', 'categorias', 'empresa', 'acciones'];
+  displayedColums = ['id', 'nombre', 'precio', 'imagen', 'descripcion', 'acciones'];
   dataSource: MatTableDataSource<ProductoServicio>;
   categoria: Categoria[];
   empresa: Empresa[];

@@ -52,15 +52,20 @@
         <mat-cell *matCellDef="let row"> {{row.comuna}} </mat-cell>
       </ng-container>
 
+      <ng-container matColumnDef="calificacion">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Calificacion </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.calificacion}} </mat-cell>
+      </ng-container>
+
       <ng-container matColumnDef="ciudad">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Ciudad </mat-header-cell>
         <mat-cell *matCellDef="let row"> {{row.ciudad}} </mat-cell>
       </ng-container>
 
-      <mat-expansion-panel *ngFor="let c of categoria; let i=index">
+      <mat-expansion-panel *ngFor="let categoria of categoria; let i=index">
         <mat-expansion-panel-header>
             <mat-panel-title>
-              {{ i + 1 }}   {{c.nombre_categoria}}
+              {{ i + 1 }}   {{categoria.nombre_categoria}}
             </mat-panel-title>
             <mat-panel-description>
                 Ver Categoria

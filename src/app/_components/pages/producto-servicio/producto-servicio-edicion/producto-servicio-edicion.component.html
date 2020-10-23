@@ -1,10 +1,5 @@
 <form class="example-container" [formGroup]="form" (ngSubmit)="operar()" #frmProductoServicio="ngForm">
-    <div>
-        <mat-form-field>
-            <input matInput placeholder="ID" required formControlName="id">
-        </mat-form-field>
-    </div>
-
+   
     <mat-form-field class="example-full-width">
         <input matInput placeholder="Nombre de Producto o Servicio" required formControlName="nombre_prod_serv">
     </mat-form-field>

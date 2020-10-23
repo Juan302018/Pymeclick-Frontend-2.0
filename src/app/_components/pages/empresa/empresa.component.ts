@@ -48,7 +48,7 @@ eliminar(empresa:Empresa){
       return  this.empresaService.listar();
     })).subscribe(data =>{
       this.empresaService.empresaCambio.next(data);
-      this.empresaService.mensajeCambio.next('Una empresa ha sido eliminada');
+      this.empresaService.mensajeCambio.next('Empresa eliminada correctamente!');
     });
   }
 

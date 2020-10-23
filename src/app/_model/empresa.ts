@@ -15,4 +15,8 @@ export class Empresa {
     calificacion: Calificacion;
     ciudad: Ciudad;
     categorias: Categoria[];
+
+    public constructor(init?: Partial<Empresa>) {
+        Object.assign(this, init);
+      }
 }

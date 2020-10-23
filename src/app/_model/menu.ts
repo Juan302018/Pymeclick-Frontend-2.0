@@ -6,4 +6,8 @@ export class Menu {
     nombre: string;
     url: string;
     roles: Rol[];
+
+    public constructor(init?: Partial<Menu>) {
+        Object.assign(this, init);
+      }
 }

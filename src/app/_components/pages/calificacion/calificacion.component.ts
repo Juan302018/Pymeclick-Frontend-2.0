@@ -40,6 +40,7 @@ paginator: MatPaginator;
   filtrar(valor: string) {
     this.dataSource.filter = valor.trim().toLowerCase();
   }
+  
   eliminar(calificacion: Calificacion) {
     this.calificacionService.eliminar(calificacion.id_calificacion).pipe(
       switchMap(() => {

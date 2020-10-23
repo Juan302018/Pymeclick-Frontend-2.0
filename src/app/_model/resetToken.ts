@@ -6,4 +6,8 @@ export class ResetToken {
     token: string;
     user: Usuario;
     expiracion: Date;
+
+    public constructor(init?: Partial<ResetToken>) {
+        Object.assign(this, init);
+      }
 }

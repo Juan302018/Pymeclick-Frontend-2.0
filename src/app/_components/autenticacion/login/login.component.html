@@ -1,0 +1,36 @@
+<mat-card>
+  <h4 class="card-title mb-2">Sistema PymeClick</h4>
+  <p class="card-text mb-3">Ingresa tus credenciales para iniciar sesión.</p>
+  <mat-card-title>Login</mat-card-title>
+  <mat-card-content>
+    <form class="example-container">
+        <img src="assets/logoPymeClick.png" alt="pymeClick" class="img-fluid mt-5" width="400" height="230">
+      <mat-divider></mat-divider>
+    <p>
+      <mat-form-field class="inputGroup inputGroup1">
+        <input type="text" placeholder="Usuario" maxlength="9" matInput [matAutocomplete]="usuario" required
+          formControlName="usuario"/>
+          <i class="fa fa-user md-dark md-inactive"></i>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field class="inputGroup inputGroup2"> 
+        <input type="text" placeholder="Password" [matAutocomplete]="clave" matInput required
+          formControlName="password"/>
+          <i class="fa fa-lock md-dark md-inactive"></i>
+          <mat-divider></mat-divider>
+          <div style="text-align: center">
+            <a routerLink="/recuperar">¿Olvidaste tu contraseña?</a>
+          </div>
+      </mat-form-field>
+    </p>
+      <mat-divider></mat-divider>
+      <div class="button inputGroup inputGroup3">
+        <button mat-raised-button type="submit" (click)="iniciarSesion()" (keyup.enter)="iniciarSesion()" color="primary" aria-hidden="true" style="cursor: pointer">
+        </button>
+      </div>
+      <mat-card *ngIf="mensaje">{{mensaje}}</mat-card>
+      <mat-card *ngIf="error">{{error}}</mat-card>  
+    </form>
+  </mat-card-content>
+</mat-card>

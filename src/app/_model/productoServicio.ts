@@ -9,4 +9,8 @@ export class ProductoServicio{
     descripcion_prod_serv: string;
     categorias: Categoria[];
     empresas: Empresa[];
+
+    public constructor(init?: Partial<ProductoServicio>) {
+        Object.assign(this, init);
+      }
 }

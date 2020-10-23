@@ -6,4 +6,8 @@ export class Usuario {
     password: string;
     enabled: boolean;
     roles: Rol[];
+
+    public constructor(init?: Partial<Usuario>) {
+        Object.assign(this, init);
+      }
 }

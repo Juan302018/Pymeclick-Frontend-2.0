@@ -4,4 +4,7 @@ export class Calificacion {
     imagen: string;
     comentario: string;
 
+    public constructor(init?: Partial<Calificacion>) {
+        Object.assign(this, init);
+      }
 }

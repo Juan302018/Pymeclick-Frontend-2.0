@@ -18,32 +18,28 @@
 
       <ng-container matColumnDef="nombre ciudad">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.nombre_ciudad}} </mat-cell>
+        <mat-cell *matCellDef="let row"> {{row.nombre}} </mat-cell>
       </ng-container>
-
-      <mat-expansion-panel *ngFor="let c of comuna; let i=index">
-        <mat-expansion-panel-header>
-            <mat-panel-title>
-              {{ i + 1 }}  {{c.nombre_comuna}}
-            </mat-panel-title>
-            <mat-panel-description>
-                Ver Comuna
-            </mat-panel-description>
-        </mat-expansion-panel-header>
-    </mat-expansion-panel>
-
-      <ng-container matColumnDef="acciones">
+      
+   
+    
+     <ng-container matColumnDef="acciones">
         <mat-header-cell *matHeaderCellDef>Acciones</mat-header-cell>
         <mat-cell *matCellDef="let row">
           <button mat-button color="accent" (click)="eliminar(row)"><mat-icon>delete</mat-icon></button>
         </mat-cell>
       </ng-container>
-
-    <mat-header-row *matHeaderRowDef="displayedColums"></mat-header-row>
+   <mat-header-row *matHeaderRowDef="displayedColums"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColums;">
     </mat-row>
   </mat-table>
-
+ 
+ <!-- <mat-list>
+    <h3 mat-subheader>Comuna</h3>
+  <mat-list-item *ngFor="let comuna of comuna">
+    <h3 matLine> {{comuna.nombre_comuna}}</h3>
+  </mat-list-item>
+    </mat-list> -->
   <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
 </div>
 

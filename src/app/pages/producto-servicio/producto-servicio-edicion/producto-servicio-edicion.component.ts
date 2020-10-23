@@ -39,6 +39,8 @@ export class ProductoServicioEdicionComponent implements OnInit {
       precio: new FormControl(0),
       imagen: new FormControl(''),
       descripcion_prod_serv: new FormControl(''),
+      categorias: new FormControl(this.categoria),
+      empresas: new FormControl(this.empresa)
     
    });
    /** 
@@ -61,6 +63,7 @@ export class ProductoServicioEdicionComponent implements OnInit {
 
   listarCategoria(){
     this.categoriaService.listar().subscribe(data =>{
+      console.log('Categorias: ', data);
       this.categoria = data;
     }
     );
@@ -74,24 +77,26 @@ export class ProductoServicioEdicionComponent implements OnInit {
   }
 
   agregarCategoria() {
-    if (this.id_categoriaSeleccionada > 0) {
-
+    if (this.id_categoriaSeleccionada > 0) { 
+      console.log('Categoría: ', this.id_categoriaSeleccionada);
       let cont = 0;
       for (let i = 0; i < this.categoriasSeleccionadas.length; i++) {
         let categoria = this.categoriasSeleccionadas[i];
+        console.log('categoriaClass:', categoria);
         if (categoria.id_categoria === this.id_categoriaSeleccionada) {
           cont++;
           break;
         }
       }
       if (cont > 0) {
-        this.mensaje = 'La categoría se encuentra en la lista';
+        this.mensaje = 'La categoría se encuentra en la lista!';
         this.snackBar.open(this.mensaje, "Aviso", { duration: 2000 });
       } else {
         let categoria = new Categoria();
         categoria.id_categoria = this.id_categoriaSeleccionada;
 
         this.categoriaService.listarPorId(this.id_categoriaSeleccionada).subscribe(data => {
+          console.log('servicesListaCat:', data);
           categoria.nombre_categoria = data.nombre_categoria;
           this.categoriasSeleccionadas.push(categoria);
         });
@@ -135,6 +140,8 @@ export class ProductoServicioEdicionComponent implements OnInit {
 // Veirifica si el paramétro id es nulo, y la opción por defecto es True
     if(this.edicion) {
       this.productoServicioService.listarPorId(this.id).subscribe(data => {
+
+        console.log('listaPorId:', data);
         let id = data.id_prod_serv;
         let nombre_prod_serv = data.nombre_prod_serv;
         let precio = data.precio;
@@ -161,13 +168,17 @@ export class ProductoServicioEdicionComponent implements OnInit {
       this.productoServicio.precio = this.form.value['precio'];
       this.productoServicio.imagen = this.form.value['imagen'];
       this.productoServicio.descripcion_prod_serv = this.form.value['descripcion_prod_serv'];
-      this.productoServicio.categorias = this.form.value['categoria'];
-      this.productoServicio.empresas = this.form.value['empresa'];
+      this.productoServicio.categorias = this.form.value['id_categoriaSeleccionada'];
+      console.log('id_categoriasSeleccionadaOperar: ', this.productoServicio.categorias);
+      this.productoServicio.empresas = this.form.value['id_empresaSeleccionada'];
+      console.log('id_empresaSeleccionadaOperar: ', this.productoServicio.empresas);
+      //console.log('productoServicio: ', this.productoServicio);
       if(this.productoServicio!= null && this.productoServicio.id_prod_serv >0){
         // pipe es un método observable que es similar al subscribe, pero que optimisa y renderiza mejor la carga de lista
         this.productoServicioService.modificar(this.productoServicio).pipe(switchMap(() => {
           return this.productoServicioService.listar();
         })).subscribe(data => {
+          console.log('data productoServicio: ', data);
           this.productoServicioService.productoServicioCambio.next(data);
           this.productoServicioService.mensajeCambio.next("Un Producto o Servicio fue modificado");
         });  
@@ -175,12 +186,13 @@ export class ProductoServicioEdicionComponent implements OnInit {
       this.productoServicioService.registrar(this.productoServicio).pipe(switchMap(() => {
         return this.productoServicioService.listar();
       })).subscribe(data => {
+        console.log('data productoServicio: ', data);
         this.productoServicioService.productoServicioCambio.next(data);
         this.productoServicioService.mensajeCambio.next("Se registró un Producto o Servicio");
       });
     }
 
-    this.router.navigate(['productoServicio']);
+    this.router.navigate(['productoservicio']);
   }
 
 

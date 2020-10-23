@@ -12,9 +12,9 @@ import { switchMap } from 'rxjs/operators';
 })
 export class CiudadComponent implements OnInit {
 
-  displayedColums = ['id', 'nombre ciudad', 'comuna', 'acciones'];
+  displayedColums = ['id', 'nombre ciudad', 'acciones'];
 dataSource:MatTableDataSource<Ciudad>;
-comuna:Comuna[];
+//comuna:Comuna[] =[];
 @ViewChild(MatPaginator,{static:true})
 paginator:MatPaginator;
 @ViewChild(MatSort,{static:true}) sort: MatSort;

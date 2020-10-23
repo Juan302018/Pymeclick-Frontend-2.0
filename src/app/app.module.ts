@@ -18,6 +18,7 @@ import { EmpresaEdicionComponent } from './pages/empresa/empresa-edicion/empresa
 import { ProductoServicioEdicionComponent } from './pages/producto-servicio/producto-servicio-edicion/producto-servicio-edicion.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

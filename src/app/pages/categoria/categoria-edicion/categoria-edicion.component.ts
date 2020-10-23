@@ -39,14 +39,14 @@ export class CategoriaEdicionComponent implements OnInit {
         let nombre_categoria = data.nombre_categoria;
         this.form = new FormGroup({
         'id':new FormControl(id),
-        'nombre': new FormControl(nombre_categoria)
+        'nombre_categoria': new FormControl(nombre_categoria)
       });
     });
   }
    }
    operar(){
      this.categoria.id_categoria = this.form.value['id'];
-     this.categoria.nombre_categoria = this.form.value['nombre'];
+     this.categoria.nombre_categoria = this.form.value['nombre_categoria'];
      if (this.categoria.id_categoria!= null && this.categoria.id_categoria >0){
        this.categoriaService.modificar(this.categoria).pipe(
          switchMap(() => {

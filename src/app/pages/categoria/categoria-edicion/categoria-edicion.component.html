@@ -1,13 +1,7 @@
 <form class="example-container" [formGroup]="form" (ngSubmit)="operar()" #frmCategoria="ngForm">
    
-    <div [hidden]="true">
-        <mat-form-field class="example-full-width">
-            <input matInput placeholder="ID" required formControlName="id">
-        </mat-form-field>
-    </div>
-
     <mat-form-field class="example-full-width">
-        <input matInput placeholder="Nombre de categoria" required formControlName="nombre">
+        <input matInput placeholder="Nombre de categoria" required formControlName="nombre_categoria">
     </mat-form-field>
 
 

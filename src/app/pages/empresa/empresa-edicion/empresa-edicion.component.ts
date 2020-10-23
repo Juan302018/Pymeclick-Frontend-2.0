@@ -183,7 +183,7 @@ initForm(){
           this.empresa.id_empresa = this.form.value['id'];
           this.empresa.nombre = this.form.value['nombre'];
           this.empresa.direccion = this.form.value['direccion'];
-          this.empresa.descripcion = this.form.value['imagen'];
+          this.empresa.descripcion = this.form.value['descripcion'];
           this.empresa.telefono = this.form.value['telefono'];
           this.empresa.logo = this.form.value['logo'];
           this.empresa.email = this.form.value['email'];

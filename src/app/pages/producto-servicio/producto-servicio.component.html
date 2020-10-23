@@ -11,7 +11,7 @@
     </div>
     <!-- dataSource: Mappea la entidad dataSource:MatTableDataSource<ProductoServicio> -->
     <!-- matSorce: ordenador de datos -->
-    <mat-table [dataSource]="dataSource" matSorce>
+    <mat-table [dataSource]="dataSource" matSort>
         <ng-container matColumnDef="id">
             <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
             <mat-cell *matCellDef="let row"> {{row.id_prod_serv}} </mat-cell>
@@ -36,29 +36,6 @@
             <mat-header-cell *matHeaderCellDef mat-sort-header> Descripción </mat-header-cell>
             <mat-cell *matCellDef="let row"> {{row.descripcion_prod_serv}} </mat-cell>
         </ng-container>
-
-        <mat-expansion-panel *ngFor="let c of categoria; let i=index">
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    {{c.nombre_categoria}}
-                </mat-panel-title>
-                <mat-panel-description>
-                    Ver Categoria
-                </mat-panel-description>
-            </mat-expansion-panel-header>
-        </mat-expansion-panel>
-
-        <mat-expansion-panel *ngFor="let emp of empresa; let i=index">
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    {{emp.nombre}}
-                </mat-panel-title>
-                <mat-panel-description>
-                    Ver Empresa
-                </mat-panel-description>
-            </mat-expansion-panel-header>
-        </mat-expansion-panel>
-
         <ng-container matColumnDef="acciones">
             <mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </mat-header-cell>
             <mat-cell *matCellDef="let row">

@@ -1,11 +1,5 @@
 <form class="example-container" [formGroup]="form" (ngSubmit)="operar()" #frmEmpresa="ngForm">
     
-    <div [hidden]="true">
-      <mat-form-field class="example-full-width">
-          <input matInput placeholder="ID" required formControlName="id">
-      </mat-form-field>
-  </div>
-
   <mat-form-field class="example-full-width">
     <input matInput placeholder="Nombre de empresa" required formControlName="nombre">
 </mat-form-field>
@@ -23,7 +17,7 @@
 </mat-form-field>
 
 <mat-form-field class="example-full-width">
-    <input matInput placeholder="Logo" required formControlName="telefono">
+    <input matInput placeholder="Logo" required formControlName="logo">
 </mat-form-field>
 
 <mat-form-field class="example-full-width">

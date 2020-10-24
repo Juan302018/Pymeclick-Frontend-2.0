@@ -22,12 +22,12 @@ import { switchMap } from 'rxjs/operators';
 export class EmpresaEdicionComponent implements OnInit {
 
   categoria: Categoria[];
-  comuna:Comuna[] = [];
-  ciudad:Ciudad[] = [];
-  calificacion:Calificacion[] = [];
-  comunaSeleccionada:Comuna;
-  ciudadSeleccionada:Ciudad;
-  calificacionSeleccionada:Calificacion;
+  comuna: Comuna[] = [];
+  ciudad: Ciudad[] = [];
+  calificacion: Calificacion[] = [];
+  comunaSeleccionada: number;
+  ciudadSeleccionada: number;
+  calificacionSeleccionada: number;
   categoriasSeleccionados: Categoria[] = [];
   id: number;
   id_categoriaSeleccionado: number;
@@ -53,7 +53,12 @@ export class EmpresaEdicionComponent implements OnInit {
       descripcion: new FormControl(''),
       telefono: new FormControl(''),
       logo: new FormControl(''),
-      email: new FormControl('')
+      email: new FormControl(''),
+      comuna: new FormControl(this.empresa.comuna),
+      calificacion: new FormControl(this.empresa.calificacion),
+      ciudad: new FormControl(this.empresa.ciudad),
+      categorias: new FormControl(this.empresa.categorias)
+
     });
 
     this.route.params.subscribe((params: Params) => {
@@ -137,9 +142,9 @@ seleccionarCalificacion(e: any) {
 
 registrar(){
   let empresa = new Empresa();
-  empresa.ciudad = this.ciudadSeleccionada;
-  empresa.comuna = this.comunaSeleccionada;
-  empresa.calificacion = this.calificacionSeleccionada;
+  empresa.ciudad.id_ciudad = this.ciudadSeleccionada;
+  empresa.comuna.id_comuna = this.comunaSeleccionada;
+  empresa.calificacion.id_calificacion = this.calificacionSeleccionada;
 
 
 }
@@ -158,9 +163,9 @@ initForm(){
             let ciudad = data.ciudad;
             let comuna = data.comuna;
             let calificacion = data.calificacion;
-            ciudad = this.ciudadSeleccionada;
-            comuna = this.comunaSeleccionada;
-            calificacion = this.calificacionSeleccionada;
+            ciudad.id_ciudad = this.empresa.ciudad.id_ciudad;
+            comuna.id_comuna = this.empresa.comuna.id_comuna;
+            calificacion.id_calificacion = this.empresa.calificacion.id_calificacion;
             let categoria = data.categorias
             this.form = new FormGroup({
               'id': new FormControl(id),

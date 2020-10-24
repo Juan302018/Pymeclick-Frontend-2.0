@@ -49,32 +49,19 @@
       
       <ng-container matColumnDef="comuna">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Comuna </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.comuna}} </mat-cell>
+        <mat-cell *matCellDef="let row"> {{row.comuna.id_comuna}} </mat-cell> -->
       </ng-container>
 
       <ng-container matColumnDef="calificacion">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Calificacion </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.calificacion}} </mat-cell>
+        <mat-cell *matCellDef="let row"> {{row.calificacion.puntaje}} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="ciudad">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Ciudad </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.ciudad}} </mat-cell>
+        <mat-cell *matCellDef="let row"> {{row.ciudad.nombre}} </mat-cell>
       </ng-container>
 
-      <mat-expansion-panel *ngFor="let categoria of categoria; let i=index">
-        <mat-expansion-panel-header>
-            <mat-panel-title>
-              {{ i + 1 }}   {{categoria.nombre_categoria}}
-            </mat-panel-title>
-            <mat-panel-description>
-                Ver Categoria
-            </mat-panel-description>
-        </mat-expansion-panel-header>
-    </mat-expansion-panel>
-
-      
-      
       <ng-container matColumnDef="acciones">
         <mat-header-cell *matHeaderCellDef>Acciones</mat-header-cell>
         <mat-cell *matCellDef="let row">

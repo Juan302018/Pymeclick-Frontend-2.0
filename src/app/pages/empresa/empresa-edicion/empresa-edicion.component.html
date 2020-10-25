@@ -25,7 +25,7 @@
 </mat-form-field>
 
 <mat-form-field>
-    <mat-select placeholder="Comuna" [(value)]="comunaSeleccionada"
+    <mat-select placeholder="Comuna" [(value)]="comunaSeleccionada" formControlName="comuna"
         (selectionChange)="seleccionarComuna($event)">
         <mat-option *ngFor="let com of comuna" [value]="com">
             {{com.nombre_comuna}}
@@ -34,7 +34,7 @@
 </mat-form-field>
 
 <mat-form-field>
-    <mat-select placeholder="Ciudad" [(value)]="ciudadSeleccionada"
+    <mat-select placeholder="Ciudad" [(value)]="ciudadSeleccionada" formControlName="ciudad"
         (selectionChange)="seleccionarCiudad($event)">
         <mat-option *ngFor="let ciu of ciudad" [value]="ciu">
             {{ciu.nombre}} 
@@ -43,29 +43,21 @@
 </mat-form-field>
 
 <mat-form-field>
-    <mat-select placeholder="Calificacion" [(value)]="calificacionSeleccionada"
+    <mat-select placeholder="Calificacion" [(value)]="calificacionSeleccionada" formControlName="calificacion"
         (selectionChange)="seleccionarCalificacion($event)">
         <mat-option *ngFor="let cal of calificacion" [value]="cal">
-            {{cal.puntaje}} 
+            {{cal.id_calificacion}} {{cal.puntaje}} 
         </mat-option>
     </mat-select>
 </mat-form-field>
 
-<mat-form-field>
-    <mat-select placeholder="Categoria" [(value)]="id_categoriaSeleccionado">
-        <mat-option *ngFor="let c of categoria" [value]="c.id_categoria">{{c.nombre_categoria}}</mat-option>
-    </mat-select>
-</mat-form-field>
-
-<button mat-raised-button color="primary" (click)="agregarCategoria()">Agregar Categorías</button>
-
   <button mat-raised-button color="primary" type="submit" [disabled]="frmEmpresa.invalid">
     <mat-icon>done</mat-icon>
-    <mat-icon>Aceptar</mat-icon> 
+    <span>Aceptar</span> 
 </button>
 
 <button mat-raised-button color="accent" routerLink='/empresa' type="button">
     <mat-icon>close</mat-icon>
-    <mat-icon>Cancelar</mat-icon>
+    <span>Cancelar</span>
 </button>
 </form>

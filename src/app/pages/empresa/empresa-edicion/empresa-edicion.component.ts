@@ -130,14 +130,17 @@ agregarCategoria() {
 
 seleccionarCiudad(e: any) {
   this.ciudadSeleccionada = e.value;
+  console.log('id ciduad', e.value);
 }
 
 seleccionarComuna(e: any) {
   this.comunaSeleccionada = e.value;
+   console.log('id comuna', e.value);
 }
 
 seleccionarCalificacion(e: any) {
   this.calificacionSeleccionada = e.value;
+   console.log('id_calificacion', e.value);
 }
 
 registrar(){

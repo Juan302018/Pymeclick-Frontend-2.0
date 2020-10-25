@@ -17,7 +17,7 @@ import { Ciudad } from 'src/app/_model/ciudad';
 export class EmpresaComponent implements OnInit {
 
 displayedColums = ['id','nombre','direccion','descripcion','telefono','logo',
-'email','comuna','calificacion','ciudad','acciones'];
+'email','comuna','calificacion','ciudad','categoria','acciones'];
 
 dataSource:MatTableDataSource<Empresa>;
 

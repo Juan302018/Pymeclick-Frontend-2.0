@@ -14,5 +14,5 @@ export class Empresa {
     comuna: Comuna;
     calificacion: Calificacion;
     ciudad: Ciudad;
-    categorias: Categoria[];
+    categoria: Categoria;
 }

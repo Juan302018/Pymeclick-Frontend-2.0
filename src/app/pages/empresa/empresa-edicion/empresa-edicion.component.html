@@ -46,7 +46,16 @@
     <mat-select placeholder="Calificacion" [(value)]="calificacionSeleccionada" formControlName="calificacion"
         (selectionChange)="seleccionarCalificacion($event)">
         <mat-option *ngFor="let cal of calificacion" [value]="cal">
-            {{cal.id_calificacion}} {{cal.puntaje}} 
+            {{cal.puntaje}} 
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+
+<mat-form-field>
+    <mat-select placeholder="Categoria" [(value)]="categoriaSeleccionada" formControlName="categoria"
+        (selectionChange)="seleccionarCalificacion($event)">
+        <mat-option *ngFor="let cat of categoria" [value]="cat">
+            {{cat.nombre_categoria}} 
         </mat-option>
     </mat-select>
 </mat-form-field>

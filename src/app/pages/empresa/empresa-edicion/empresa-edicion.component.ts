@@ -21,16 +21,16 @@ import { switchMap } from 'rxjs/operators';
 })
 export class EmpresaEdicionComponent implements OnInit {
 
-  categoria: Categoria[];
+  categoria: Categoria[] = [];
   comuna: Comuna[] = [];
   ciudad: Ciudad[] = [];
   calificacion: Calificacion[] = [];
   comunaSeleccionada: number;
   ciudadSeleccionada: number;
   calificacionSeleccionada: number;
-  categoriasSeleccionados: Categoria[] = [];
+  categoriaSeleccionada: number;
+  
   id: number;
-  id_categoriaSeleccionado: number;
   empresa:Empresa;
   form: FormGroup;
   edicion: boolean = false;
@@ -54,10 +54,10 @@ export class EmpresaEdicionComponent implements OnInit {
       telefono: new FormControl(''),
       logo: new FormControl(''),
       email: new FormControl(''),
-      comuna: new FormControl(this.empresa.comuna),
-      calificacion: new FormControl(this.empresa.calificacion),
-      ciudad: new FormControl(this.empresa.ciudad),
-      categorias: new FormControl(this.empresa.categorias)
+      comuna: new FormControl(this.comuna),
+      calificacion: new FormControl(this.calificacion),
+      ciudad: new FormControl(this.ciudad),
+      categoria: new FormControl(this.categoria)
 
     });
 
@@ -99,38 +99,16 @@ listarCategoria(){
         );
 }
 
-agregarCategoria() {
-  if (this.id_categoriaSeleccionado > 0) {
 
-    let cont = 0;
-    for (let i = 0; i < this.categoriasSeleccionados.length; i++) {
-      let categoria = this.categoriasSeleccionados[i];
-      if (categoria.id_categoria === this.id_categoriaSeleccionado) {
-        cont++;
-        break;
-      }
-    }
-    if (cont > 0) {
-      this.mensaje = 'La categoría se encuentra en la lista';
-      this.snackBar.open(this.mensaje, "Aviso", { duration: 2000 });
-    } else {
-      let categoria = new Categoria();
-      categoria.id_categoria = this.id_categoriaSeleccionado;
-
-      this.categoriaService.listarPorId(this.id_categoriaSeleccionado).subscribe(data => {
-        categoria.nombre_categoria = data.nombre_categoria;
-        this.categoriasSeleccionados.push(categoria);
-      });
-    }
-  } else {
-    this.mensaje = 'Debe agregar una categoría';
-    this.snackBar.open(this.mensaje, "Aviso", { duration: 2000 });
-  }
-}
 
 seleccionarCiudad(e: any) {
   this.ciudadSeleccionada = e.value;
   console.log('id ciduad', e.value);
+}
+
+seleccionarCategoria(e: any) {
+  this.categoriaSeleccionada = e.value;
+  console.log('id categoria', e.value);
 }
 
 seleccionarComuna(e: any) {
@@ -148,7 +126,7 @@ registrar(){
   empresa.ciudad.id_ciudad = this.ciudadSeleccionada;
   empresa.comuna.id_comuna = this.comunaSeleccionada;
   empresa.calificacion.id_calificacion = this.calificacionSeleccionada;
-
+  empresa.categoria.id_categoria = this.categoriaSeleccionada;
 
 }
 
@@ -165,11 +143,12 @@ initForm(){
             let email = data.email;
             let ciudad = data.ciudad;
             let comuna = data.comuna;
+            let categoria = data.categoria;
             let calificacion = data.calificacion;
             ciudad.id_ciudad = this.empresa.ciudad.id_ciudad;
             comuna.id_comuna = this.empresa.comuna.id_comuna;
-            calificacion.id_calificacion = this.empresa.calificacion.id_calificacion;
-            let categoria = data.categorias
+           calificacion.id_calificacion = this.empresa.calificacion.id_calificacion;
+            categoria.id_categoria = this.empresa.categoria.id_categoria
             this.form = new FormGroup({
               'id': new FormControl(id),
               'nombre': new FormControl(nombre),
@@ -198,7 +177,7 @@ initForm(){
           this.empresa.ciudad = this.form.value['ciudad'];
           this.empresa.comuna = this.form.value['comuna'];
           this.empresa.calificacion = this.form.value['calificacion'];
-          this.empresa.categorias = this.form.value['categoria'];
+          this.empresa.categoria = this.form.value['categoria'];
     
           if(this.empresa!= null && this.empresa.id_empresa >0){
            

@@ -16,7 +16,6 @@ import { CalificacionEdicionComponent } from './pages/calificacion/calificacion-
 import { CategoriaEdicionComponent } from './pages/categoria/categoria-edicion/categoria-edicion.component';
 import { EmpresaEdicionComponent } from './pages/empresa/empresa-edicion/empresa-edicion.component';
 import { ProductoServicioEdicionComponent } from './pages/producto-servicio/producto-servicio-edicion/producto-servicio-edicion.component';
-import { HomeComponent } from './pages/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatListModule } from '@angular/material/list';
 
@@ -32,8 +31,7 @@ import { MatListModule } from '@angular/material/list';
     CalificacionEdicionComponent,
     CategoriaEdicionComponent,
     EmpresaEdicionComponent,
-    ProductoServicioEdicionComponent,
-    HomeComponent
+    ProductoServicioEdicionComponent
   ],
   imports: [
     BrowserModule,

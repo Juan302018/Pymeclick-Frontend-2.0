@@ -7,6 +7,6 @@ export class ProductoServicio{
     precio: string;
     imagen: string;
     descripcion_prod_serv: string;
-    categorias: Categoria;
-    empresas: Empresa;
+    categoria: Categoria;
+    empresa: Empresa;
 }

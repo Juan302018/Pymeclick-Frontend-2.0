@@ -27,8 +27,6 @@ paginator:MatPaginator;
 
 
   constructor(private empresaService:EmpresaService,
-             private comunaService: ComunaService,
-             private ciudadService: CiudadService,
              public snackBar: MatSnackBar) { }
 
   ngOnInit(){

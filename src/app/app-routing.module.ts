@@ -10,14 +10,18 @@ import { EmpresaEdicionComponent } from './pages/empresa/empresa-edicion/empresa
 import { EmpresaComponent } from './pages/empresa/empresa.component';
 import { ProductoServicioComponent } from './pages/producto-servicio/producto-servicio.component';
 import { ProductoServicioEdicionComponent } from './pages/producto-servicio/producto-servicio-edicion/producto-servicio-edicion.component';
-import { HomeComponent } from './pages/home/home.component';
+
 
 
 const routes: Routes = [
 
   {
-    path: 'home', component: HomeComponent,
-    pathMatch: 'full'
+    path: 'empresa', component: EmpresaComponent,
+    pathMatch: 'full',
+     children: [
+      { path: 'nuevo', component: EmpresaEdicionComponent },
+      { path: 'edicion/:id', component: EmpresaEdicionComponent }
+    ]
   },
 
   {
@@ -41,15 +45,9 @@ const routes: Routes = [
   {
     path: 'comuna', component: ComunaComponent
   },
-
+  
   {
-    path: 'empresa', component: EmpresaComponent, children: [
-      { path: 'nuevo', component: EmpresaEdicionComponent },
-      { path: 'edicion/:id', component: EmpresaEdicionComponent }
-    ]
-  },
-
-  {
+    
     path: 'productoservicio', component: ProductoServicioComponent, children: [
       { path: 'nuevo', component: ProductoServicioEdicionComponent },
       { path: 'edicion/:id', component: ProductoServicioEdicionComponent }

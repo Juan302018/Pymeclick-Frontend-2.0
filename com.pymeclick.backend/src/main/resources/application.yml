@@ -15,4 +15,4 @@ spring:
             enable: true       
             required: true     
     protocol: smtp
-    test-connection: true
+    test-connection: false

@@ -18,6 +18,9 @@ import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 
+import lombok.Data;
+
+@Data
 @Entity
 @Table(name = "empresa")
 public class Empresa {
@@ -64,95 +67,4 @@ public class Empresa {
 	@ManyToOne
 	@JoinColumn(name = "id_categoria", nullable = true, foreignKey = @ForeignKey(name = "FK_categoria"))
 	private Categoria categoria;
-
-	public Integer getId_empresa() {
-		return id_empresa;
-	}
-
-	public void setId_empresa(Integer id_empresa) {
-		this.id_empresa = id_empresa;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getDireccion() {
-		return direccion;
-	}
-
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
-	}
-
-	public String getDescripcion() {
-		return descripcion;
-	}
-
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
-
-	public String getTelefono() {
-		return telefono;
-	}
-
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
-	}
-
-	public String getLogo() {
-		return logo;
-	}
-
-	public void setLogo(String logo) {
-		this.logo = logo;
-	}
-
-	public Ciudad getCiudad() {
-		return ciudad;
-	}
-
-	public void setCiudad(Ciudad ciudad) {
-		this.ciudad = ciudad;
-	}
-
-	
-
-	public Categoria getCategoria() {
-		return categoria;
-	}
-
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public Comuna getComuna() {
-		return comuna;
-	}
-
-	public void setComuna(Comuna comuna) {
-		this.comuna = comuna;
-	}
-
-	public Calificacion getCalificacion() {
-		return calificacion;
-	}
-
-	public void setCalificacion(Calificacion calificacion) {
-		this.calificacion = calificacion;
-	}
-
 }

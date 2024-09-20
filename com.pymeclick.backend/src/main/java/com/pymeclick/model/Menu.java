@@ -13,6 +13,9 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import lombok.Data;
+
+@Data
 @Entity
 @Table(name = "menu")
 public class Menu {
@@ -36,44 +39,5 @@ public class Menu {
 	inverseJoinColumns = @JoinColumn(name = "id_rol", referencedColumnName = "id_rol"))
 	private List<Rol> roles;
 
-	public Integer getId_menu() {
-		return id_menu;
-	}
-
-	public void setId_menu(Integer id_menu) {
-		this.id_menu = id_menu;
-	}
-
-	public String getIcono() {
-		return icono;
-	}
-
-	public void setIcono(String icono) {
-		this.icono = icono;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getUrl() {
-		return url;
-	}
-
-	public void setUrl(String url) {
-		this.url = url;
-	}
-
-	public List<Rol> getRoles() {
-		return roles;
-	}
-
-	public void setRoles(List<Rol> roles) {
-		this.roles = roles;
-	}
 
 }

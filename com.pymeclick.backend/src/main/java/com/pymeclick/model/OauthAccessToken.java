@@ -8,6 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
+import lombok.Data;
+
+@Data
 @Entity
 @Table(name = "oauth_access_token")
 public class OauthAccessToken {

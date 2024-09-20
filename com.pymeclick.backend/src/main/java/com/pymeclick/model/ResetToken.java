@@ -11,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import lombok.Data;
+
+@Data
 @Entity
 public class ResetToken {
 	
@@ -27,38 +30,6 @@ public class ResetToken {
 	
 	@Column(nullable = false)
 	private LocalDateTime expiracion;
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getToken() {
-		return token;
-	}
-
-	public void setToken(String token) {
-		this.token = token;
-	}
-
-	public Usuario getUser() {
-		return user;
-	}
-
-	public void setUser(Usuario user) {
-		this.user = user;
-	}
-
-	public LocalDateTime getExpiracion() {
-		return expiracion;
-	}
-
-	public void setExpiracion(LocalDateTime expiracion) {
-		this.expiracion = expiracion;
-	}
 	
 	public void setExpiracion(int minutos) {
 		LocalDateTime hoy = LocalDateTime.now();

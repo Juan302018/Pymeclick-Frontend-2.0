@@ -13,6 +13,9 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import lombok.Data;
+
+@Data
 @Entity
 @Table(name = "usuario")
 public class Usuario {
@@ -35,46 +38,5 @@ public class Usuario {
 	inverseJoinColumns = @JoinColumn(name = "id_rol", referencedColumnName = "id_rol"))
 	private List<Rol> roles;
 
-	public Integer getId_usuario() {
-		return id_usuario;
-	}
-
-	public void setId_usuario(Integer id_usuario) {
-		this.id_usuario = id_usuario;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public boolean isEnabled() {
-		return enabled;
-	}
-
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-	}
-
-	public List<Rol> getRoles() {
-		return roles;
-	}
-
-	public void setRoles(List<Rol> roles) {
-		this.roles = roles;
-	}
-	
-	
 
 }

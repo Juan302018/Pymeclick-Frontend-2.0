@@ -17,6 +17,9 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
+import lombok.Data;
+
+@Data
 @Entity
 @Table(name = "ciudad")
 public class Ciudad {
@@ -27,22 +30,6 @@ public class Ciudad {
 
 	@Column(name = "nombre", nullable = false, length = 70)
 	private String nombre;
-
-	public Integer getId_ciudad() {
-		return id_ciudad;
-	}
-
-	public void setId_ciudad(Integer id_ciudad) {
-		this.id_ciudad = id_ciudad;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
 
 
 	
